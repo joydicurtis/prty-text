@@ -1,0 +1,26 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: $fontWeight-semibold;
+    font-size: $fontSize-large;
+    padding: 24px;
+    a {
+        display: flex;
+        align-items: center;
+        color: #fff;
+    }
+    .nav__back-btn {
+        img {
+            margin-right: 10px;
+        }
+    }
+    .nav__back-btn,
+    .nav__more {
+        img {
+            height: 20px;
+            width: 12px;
+        }
+    }
+}

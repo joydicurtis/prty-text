@@ -1,0 +1,255 @@
+//vars
+$content-width: 1220px;
+$content-width--small: 940px;
+$content-gutters: 25px;
+
+.row {
+    position: relative;
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 $content-gutters;
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+.row--small {
+    max-width: $content-width--small;
+}
+.siteSection {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.siteSection--noPad {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+//in case we have sidebar
+$sidebar-width: 300px;
+.row.has-sidebar {
+    @include breakpoint(large) {
+        padding-right: $sidebar-width;
+    }
+    .siteContent-body {
+        @include breakpoint(large) {
+            padding-right: $content-gutters*2;
+        }
+    }
+}
+.siteContent-body {
+    @include breakpoint(large) {
+        float: left;
+        width: 100%;
+        padding-right: 0;
+    }
+}
+.siteContent-side {
+    position: relative;
+    @include breakpoint(large) {
+        float: left;
+        width: $sidebar-width;
+        margin-left: -$sidebar-width;
+        left: $sidebar-width;
+    }
+}
+
+.content {
+    position: relative;
+    color: $black;
+    background: $white;
+    border-radius: 20px 20px;
+    padding: 28px 24px;
+}
+
+.tabs {
+    background: #eee;
+    border-radius: 40px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    .tabs-item {
+        padding: 8px 32px;
+        border-radius: 30px;
+        &.tabs-item_active {
+            background: $white;
+        }
+        a {
+            position: relative;
+        }
+        .tabs-item__label {
+            position: absolute;
+            top: -6px;
+            right: -16px;
+            background: $red;
+            font-weight: $fontWeight-semibold;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            color: $white;
+            font-size: 8px;
+            text-align: center;
+        }
+    }
+}
+
+.feed {
+    .feed-item {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        background: #EDEDED;
+        border-radius: 10px;
+        padding: 15px;
+        color: $text-gray;
+        margin-bottom: 20px;
+        .feed-item-content {
+            display: flex;
+            .feed-item-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex: 0 0 40px;
+                &.feed-item-img__tickets {
+                    width: 40px;
+                    height: 52px;
+                    border-radius: 0;
+                    flex: 0 0 40px;
+                }
+            }
+            .feed-item-text {
+                padding-left: 15px;
+                padding-right: 15px;
+                .feed-item-content__name {
+                    font-size: $fontSize-large;
+                    font-weight: $fontWeight-semibold;
+                    color: $text-gray-darker;
+                    margin-bottom: 8px;
+                }
+                .feed-item-content__message {
+                    font-size: $fontSize-large;
+                    color: $text-gray;
+                    margin-bottom: 8px;
+                }
+                .feed-item-content__author {
+                    color: $black;
+                }
+                .feed-item-content-replies {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 12px;
+                    .feed-item-content-replies-img {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 8px;
+                        .feed-item-content-replies-img__item {
+                            display: inline-block;
+                            width: 16px;
+                            height: 16px;
+                            border-radius: 50%;
+                            border: solid 1px #C0C0C0;
+                            overflow: hidden;
+                            background: $white;
+                            flex: 0 0 16px;
+                            &:not(:first-child) {
+                                margin-left: -8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .feed-item-content-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 15px;
+            &.feed-item-content-info_price {
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+            .feed-item-content__likes {
+                display: flex;
+                align-items: center;
+                font-size: $fontSize-large;
+                img {
+                    width: 16px;
+                    height: 14px;
+                    margin-right: 4px;
+                }
+            }
+            .feed-item-content__price {
+                color: $black;
+                font-size: $fontSize-large;
+                font-weight: $fontWeight-semibold;
+                span {
+                    display: block;
+                    color: $black;
+                    font-size: $fontSize-base;
+                    font-weight: $fontWeight-normal;
+                }
+            }
+        }
+    }
+}
+
+.btn-expand {
+    position: absolute;
+    bottom: -8px;
+    right: 24px;
+    a {
+        font-size: 0;
+    }
+    img {
+        width: 40px;
+        height: 16px;
+    }
+}
+
+.feed-item-chips {
+    margin-left: -4px;
+    margin-right: -4px;
+    padding-top: 24px;
+    .feed-item-chips-item {
+        display: inline-block;
+        background: $white;
+        color: $black;
+        padding: 8px 12px;
+        border-radius: 6px;
+    }
+}
+
+.floating-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    position: fixed;
+    bottom: 80px;
+    left: 24px;
+    right: 24px;
+    input {
+        background: #FFFFFF;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 100px;
+        border: none;
+        padding: 20px;
+        width: 100%;
+        margin-right: 12px;
+    }
+    button {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: #3C9EEA;
+        color: $white;
+        font-size: 30px;
+        font-weight: $fontWeight-semibold;
+        border: none;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        flex: 0 0 58px;
+    }
+}
